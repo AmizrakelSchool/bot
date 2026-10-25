@@ -73,10 +73,13 @@ if __name__ == '__main__':
 
     PORT = int(os.environ.get('PORT', 10000))
     
+    # Render automatically provides your public URL here:
+    RENDER_URL = os.environ.get('RENDER_EXTERNAL_URL')
+
     print("Bot is up and running via Render webhook...")
     application.run_webhook(
         listen="0.0.0.0",
         port=PORT,
-        url_path="8996652953:AAHVoORy03AJqC5BWCWr8O5nunbRixmHbss",
-        webhook_url=f"https://YOUR-RENDER-APP-NAME.onrender.com/8996652953:AAHVoORy03AJqC5BWCWr8O5nunbRixmHbss"
+        url_path=token,
+        webhook_url=f"{RENDER_URL}/{token}"
     )
